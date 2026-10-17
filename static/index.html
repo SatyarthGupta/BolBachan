@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BolBachan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="spotlight"></div>
+  <main>
+    <header>
+      <h1>BolBachan</h1>
+      <p class="tagline">Every small thing… is a <em>climax</em>.</p>
+    </header>
+
+    <nav class="modes" role="tablist">
+      <button data-mode="resume" class="active">📄 Rate My Resume</button>
+      <button data-mode="standup">🎤 Standup</button>
+      <button data-mode="meme">😂 Meme Reactor</button>
+      <button data-mode="narrate">🎬 Dramatic Narrator</button>
+      <button data-mode="roast">🔥 Roast Me</button>
+    </nav>
+
+    <section class="controls">
+      <label id="dropzone" class="dropzone">
+        <input type="file" id="resumeFile" accept=".pdf,.txt" hidden />
+        <span id="dropLabel">📄 Drop your resume here (PDF / TXT) or click to choose. Or paste it below.</span>
+      </label>
+      <textarea id="input" rows="2"></textarea>
+      <div class="row">
+        <select id="language"></select>
+        <label class="toggle">
+          <input type="checkbox" id="uncensored" />
+          <span>Uncensored (bleeped)</span>
+        </label>
+        <button id="perform" class="perform">Perform!</button>
+      </div>
+
+      <details class="voice-panel" id="voicePanel">
+        <summary>🎙️ Voice: <strong id="voiceStatus">BolBachan (default)</strong></summary>
+        <p class="voice-help">
+          Clone a voice from a 10–15 second clip: yours, or a friend's or judge's <em>with their permission</em>.
+          Then BolBachan roasts them in their own voice.
+        </p>
+        <label class="consent">
+          <input type="checkbox" id="voiceConsent" />
+          <span>This is my voice, or I have the speaker's permission. It is not a celebrity or public figure.</span>
+        </label>
+        <div class="row">
+          <button id="recordBtn" class="small">⏺ Record 12s</button>
+          <label class="small file-btn">
+            ⬆ Upload clip
+            <input type="file" id="voiceFile" accept="audio/*" hidden />
+          </label>
+          <button id="voiceReset" class="small" hidden>↺ Back to BolBachan voice</button>
+        </div>
+        <p class="voice-help" id="voiceMsg"></p>
+      </details>
+    </section>
+
+    <section class="stage">
+      <div class="mic" id="mic">🎙️</div>
+      <div id="rating" class="rating" hidden>
+        <div class="rating-label">BolBachan Rating</div>
+        <div class="rating-score"><span id="ratingValue">0</span>/10</div>
+      </div>
+      <div id="captions" class="captions">
+        <p class="hint">The stage is set. The audience waits. Destiny… is loading.</p>
+      </div>
+      <div class="sfx-row">
+        <button data-sfx="dhan">DHAN!</button>
+        <button data-sfx="badumtss">Ba-dum-tss</button>
+        <button data-sfx="dhichik">🥁 Dhi chik dhi chik</button>
+        <button data-sfx="clap">👏 Applause</button>
+        <button id="replay" disabled>↻ Replay</button>
+      </div>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
